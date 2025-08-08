@@ -112,7 +112,7 @@ nav{
         top: 100%;
         right: -100%;
         width: 270px;
-        height: 35vh;
+        height: 240px;
         background: var(--main-color);
         display: flex;
         flex-direction: column;
