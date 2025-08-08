@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/Navbar.css'
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const [menuAtivo, setMenuAtivo] = useState(false);
@@ -7,21 +8,39 @@ const Navbar = () => {
     const alternarMenu = ()=>{
         setMenuAtivo(!menuAtivo);
     }
+
+    //fechar menu ao clicar na tela
+    const fecharMenu = ()=>{
+      if(menuAtivo){
+        setMenuAtivo(false);
+      }
+    };
+
+    useEffect(()=>{
+      document.addEventListener('click', (e)=>{
+        if(!e.target.closest('.navbar') && !e.target.closest('#menu-icon')){
+          fecharMenu();
+        }
+      });
+      return ()=>{
+        document.removeEventListener('click', ()=>{});
+      };
+    },[menuAtivo]);
   return (
     <>
     <nav>
-      <a className='logo'><i class="ri-home-9-fill"></i><span>Logo</span></a>
+      <NavLink to='/' className='logo'><i className="ri-home-9-fill"></i><span>Logo</span></NavLink>
       <ul className={`navbar ${menuAtivo ? 'open' : ''}`}>
-        <li><a className='active'>Início</a></li>
-        <li><a>Sobre</a></li>
-        <li><a>Serviços</a></li>
-        <li><a>Blog</a></li>
-        <li><a>Contato</a></li>    
+        <li><NavLink to='/' className='active' onClick={fecharMenu}>Início</NavLink></li>
+        <li><NavLink to='/servicos' onClick={fecharMenu}>Serviços</NavLink></li>
+        <li><NavLink to='/blog' onClick={fecharMenu}>Blog</NavLink></li>
+        <li><NavLink to='/contato' onClick={fecharMenu}>Contato</NavLink></li>
+        <li><NavLink to='/sobre' onClick={fecharMenu}>Sobre</NavLink></li>    
       </ul>
 
       <div className='main'>
-        <a className='user'><i class="ri-user-fill"></i>Entrar</a>
-        <a>Registrar</a>
+        <NavLink to='/login' className='user'><i className="ri-user-fill"></i>Entrar</NavLink>
+        <NavLink to='/registrar'>Registrar</NavLink>
         <div 
             className={`bx bx-menu ${menuAtivo ? 'bx-x':''}`}
             id='menu-icon'
