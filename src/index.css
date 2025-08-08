@@ -1,0 +1,24 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+:root {
+  --bg-color: #222327;
+  --text-color: #fff;
+  --main-color: #29fd53;
+}
+
+body {
+  margin: 0;  
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg-color);
+  color: var(--text-color);
+  
+}
+
