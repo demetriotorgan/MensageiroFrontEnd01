@@ -5,11 +5,11 @@ import api from '../api/api';
 const useCarregarLista = (url) =>{
  const [telefonesCarregados, setTelefonesCarregados] = useState(null);
  const [erro, setErro] = useState(null);
- const [carregando, setCarregando] = useState(false);
+ const [carregandoListaJSON, setCarregandoListaJSON] = useState(false);
  const [sucesso, setSucesso] = useState(false);
 
  const carregarLista = async()=>{
-    setCarregando(true);
+    setCarregandoListaJSON(true);
     try {
         //1.    Buscar Lista JSON
         const response = await fetch(url);
@@ -59,10 +59,10 @@ const useCarregarLista = (url) =>{
         setErro('Erro ao carregar lista');
         console.error(err);
     }finally{
-        setCarregando(false);
+        setCarregandoListaJSON(false);
     }
  };
- return {telefonesCarregados, erro, sucesso, carregando, carregarLista};
+ return {telefonesCarregados, erro, sucesso, carregandoListaJSON, carregarLista};
 };
 
 export default useCarregarLista;

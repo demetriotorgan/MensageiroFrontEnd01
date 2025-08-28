@@ -16,3 +16,7 @@
     white-space: pre-wrap;
 }
 
+.loading-img {
+  width: 20px; /* ajuste o tamanho desejado */
+  height: 20px; /* ajuste o tamanho desejado */
+}

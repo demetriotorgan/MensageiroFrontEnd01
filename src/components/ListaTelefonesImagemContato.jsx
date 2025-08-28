@@ -12,6 +12,7 @@ import useEnviarRequisicaoImagemContato from '../hooks/useEnviarRequisicaoImagem
 import enviarMensagemImagemContato from '../utils/enviarMensagemImagemContato'
 import useCarregarLista from '../hooks/usecarregarLista'
 import { useRef } from 'react'
+import useTempoEnvio from '../hooks/useTempoEnvio'
 
 const ListaTelefonesImagemContato = ({telefones,setTelefones,carregarTelefonesImagemContato, carregandoLista}) => {
     
@@ -21,12 +22,13 @@ const ListaTelefonesImagemContato = ({telefones,setTelefones,carregarTelefonesIm
     const [mensagensEnviadas, setMensagensEnviadas] = useState(0);    
     const limiteEnvio = 250;
     const cancelarEnvioRef = useRef(false);
-
+    
     //hooks
     const {telefoneAtual,setTelefoneAtual, urlImagem, setUrlImagem, caption, setCaption, adicionarTelefoneImagemContato, carregando, contatoNome, setContatoNome, contatoPhone, setContatoPhone } = useAdicionarTelefoneImagemContato(telefones, setTelefones);
     const {removerTelefoneImagem, removendo} = useRemoverTelefoneImagem();
     const {enviarRequisicaoImagemContato} = useEnviarRequisicaoImagemContato();
-    const {telefonesCarregados, erro, sucesso, carregarLista} = useCarregarLista('/telefones.json')
+    const {telefonesCarregados, erro, sucesso, carregandoListaJSON, carregarLista} = useCarregarLista('/telefones.json');
+    const {tempoEnvio, iniciarTempoEnvio, pararTempoEnvio} = useTempoEnvio();
     
     const adicionarTelefone = async ()=>{
         adicionarTelefoneImagemContato();
@@ -42,7 +44,9 @@ const ListaTelefonesImagemContato = ({telefones,setTelefones,carregarTelefonesIm
     }
 
     const handleEnviarMensagem =async()=>{  
-        await enviarMensagemImagemContato(telefones, setEnviando, setEstatusEnvio, enviarRequisicaoImagemContato, limiteEnvio, urlImagem, caption, contatoNome, contatoPhone, setMensagensEnviadas,mensagensEnviadas,setContadorEspera,cancelarEnvioRef)
+        iniciarTempoEnvio();
+        await enviarMensagemImagemContato(telefones, setEnviando, setEstatusEnvio, enviarRequisicaoImagemContato, limiteEnvio, urlImagem, caption, contatoNome, contatoPhone, setMensagensEnviadas,mensagensEnviadas,setContadorEspera,cancelarEnvioRef);
+        pararTempoEnvio();
     };
 
 const handleCarregarLista = () => {
@@ -83,8 +87,8 @@ useEffect(()=>{
 
 useEffect(()=>{
     carregarTelefonesImagemContato();
-},[])
-
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+},[]);
 
   return (
     <>
@@ -144,6 +148,7 @@ useEffect(()=>{
         <div className='mensagensEnviadas'>
         <p>Total: {telefones.length} </p> 
         <p>Enviados: {mensagensEnviadas}</p>           
+        <p>Tempo: {tempoEnvio.formatado}</p>
         </div>
          <div className='barra-envio'>
             <div className='barra-envio-progresso'
@@ -174,7 +179,9 @@ useEffect(()=>{
                         </li>
                     ))}
                 </ul>
-                <button onClick={handleCarregarLista}>Carregar Lista</button>
+                <button onClick={handleCarregarLista}>
+                {carregandoListaJSON ? (<img src={loading} className='loading-img' />) : ('Carregar Lista')}
+                </button>
             </div>
             </>    
   )
