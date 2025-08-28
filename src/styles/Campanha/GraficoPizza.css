@@ -1,0 +1,19 @@
+.grafico-container {
+  display: flex;
+  justify-content: center;   /* centraliza horizontalmente */
+  align-items: center;       /* se quiser centralizar verticalmente */
+  margin-top: 2rem;
+  overflow-x: hidden;        /* evita barra de rolagem lateral */
+  width: 100%;
+}
+
+.grafico-container h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.recharts-wrapper {
+  max-width: 100%;           /* garante que o gráfico nunca ultrapasse a tela */
+  height: auto;
+}

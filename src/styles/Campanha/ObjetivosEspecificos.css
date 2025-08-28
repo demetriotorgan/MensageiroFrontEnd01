@@ -1,0 +1,16 @@
+.objetivos-container {
+  margin-top: 20px;
+  text-align: left;
+  padding: 15px;
+  background: var(--bg-color);
+  color: #fff;
+  border-radius: 12px;
+}
+
+.objetivo-item {
+  margin: 25px 0;
+}
+
+.objetivo-item label {
+  cursor: pointer;
+}

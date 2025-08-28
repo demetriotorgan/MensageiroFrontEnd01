@@ -1,0 +1,92 @@
+/* Container principal do formulário */
+.form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #2c2f36;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+/* Título de cada grupo */
+.form-container h2 {
+  margin-bottom: 1rem;
+  color: var(--main-color);
+  text-align: center;
+}
+
+/* Perguntas */
+.pergunta {
+  margin-bottom: 1.5rem;
+}
+
+.pergunta p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Botões de notas (1 a 5) */
+.opcoes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.opcoes button {
+  flex: 1;
+  padding: 0.5rem 0;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #3a3d44;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.opcoes button:hover {
+  background: #50535a;
+}
+
+/* Estado selecionado */
+.opcoes button.selected {
+  background: var(--main-color);
+  color: #000;
+  font-weight: bold;
+}
+
+/* Navegação */
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.nav-buttons button {
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Botão voltar */
+.nav-buttons button:first-child {
+  background: #444;
+  color: var(--text-color);
+}
+
+.nav-buttons button:first-child:hover {
+  background: #666;
+}
+
+/* Botão próximo/finalizar */
+.nav-buttons button:last-child {
+  background: var(--main-color);
+  color: #000;
+}
+
+.nav-buttons button:last-child:disabled {
+  background: #777;
+  cursor: not-allowed;
+}

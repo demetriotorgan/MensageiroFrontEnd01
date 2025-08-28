@@ -1,0 +1,65 @@
+/* Container do grupo */
+.grupo-perguntas {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: #2c2f36;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* Título do grupo */
+.grupo-titulo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--main-color);
+  text-transform: capitalize;
+  text-align: center;
+}
+
+/* Cada pergunta */
+.pergunta-item {
+  margin-bottom: 1.5rem;
+}
+
+.pergunta-texto {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Container das opções */
+.opcoes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Botões das opções */
+.opcao-btn {
+  flex: 1;
+  padding: 0.6rem 0;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #3a3d44;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.opcao-btn:hover {
+  background: #50535a;
+}
+
+/* Remove o highlight azul do iOS/Android */
+.opcao-btn {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Garante que o ativo sempre prevaleça */
+.opcao-btn.ativo {
+  background: var(--main-color) !important;
+  color: #000 !important;
+}
+

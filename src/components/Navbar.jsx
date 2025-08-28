@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <>
     <nav>
-      <NavLink to='/' className='logo'><i className="ri-home-9-fill"></i><span>Logo</span></NavLink>
+      <NavLink to='/' className='logo'><i className="ri-home-9-fill"></i><span>Torgan Soluções</span></NavLink>
       <ul className={`navbar ${menuAtivo ? 'open' : ''}`}>
         <li><NavLink to='/' className='active' onClick={fecharMenu}>Início</NavLink></li>
         <li><NavLink to='/servicos' onClick={fecharMenu}>Serviços</NavLink></li>

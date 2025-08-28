@@ -1,0 +1,17 @@
+.metas-container {
+  margin-top: 20px;
+  padding: 15px;
+  background: var(--bg-color);
+  color: #fff;
+  text-align: left;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+
+.meta-item {
+  margin: 8px 0;
+}
+
+.meta-item label {
+  cursor: pointer;
+}

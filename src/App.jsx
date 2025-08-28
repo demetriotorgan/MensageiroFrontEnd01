@@ -9,6 +9,9 @@ import Sobre from './components/Sobre'
 import Dashboard from './components/Dashboard'
 import TelaLogin from './components/TelaLogin'
 import Registrar from './components/Registrar'
+import EnviarMensagem from './components/EnviarMensagem'
+import EnviarImagem from './components/EnviarImagem'
+import EnviarImagemContato from './components/EnviarImagemContato'
 
 
 function App() {
@@ -24,7 +27,10 @@ function App() {
             <Route path='contato' element={<Contato />}/>
             <Route path='sobre' element={<Sobre />}/>
             <Route path='login' element={<TelaLogin />}/>
-            <Route path='registrar' element={<Registrar />}/>
+            <Route path='registrar' element={<Registrar />}/>            
+            <Route path='enivar-mensagem' element={<EnviarMensagem />}/>
+            <Route path='enivar-imagem' element={<EnviarImagem />}/>
+            <Route path='enviar-imagem-contato' element={<EnviarImagemContato />}/>
           </Route>
         </Routes>
       </BrowserRouter>      

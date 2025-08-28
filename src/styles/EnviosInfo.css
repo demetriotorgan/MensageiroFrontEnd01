@@ -1,0 +1,61 @@
+.painel-status {
+  background-color: var(--bg-color);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: 20px auto;
+  color: var(--text-color);
+}
+
+.painel-status h2 {
+  color: var(--main-color);
+  margin-bottom: 20px;
+}
+
+.status-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.status-card p {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--text-color);  
+  padding-left: 10px;
+}
+
+.status-card p:nth-child(1) {
+  color: #ff9800; /* Você pode personalizar a cor para cada tipo de status */
+}
+
+.status-card p:nth-child(2) {
+  color: #03a9f4; /* Você pode personalizar a cor para cada tipo de status */
+}
+
+.status-card p:nth-child(3) {
+  color: #8bc34a; /* Você pode personalizar a cor para cada tipo de status */
+}
+
+.painel-status button{
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.painel-status button:hover {
+  background-color: #1ec846; /* Uma cor ligeiramente mais escura que a cor principal */
+}
+
+.painel-status .botao-excluir{
+  background-color: red;
+  margin-left: 10px;
+}

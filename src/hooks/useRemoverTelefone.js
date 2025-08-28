@@ -1,0 +1,30 @@
+import axios from 'axios'
+import api from '../api/api'
+import { useState } from 'react'
+
+const useRemoverTelefone = ()=>{
+    const [removendo, setRemovendo] = useState(false);
+    const [erro, setErro] = useState(null);
+
+    const removerTelefone = async(telefone, telefones, setTelefones)=>{
+        setRemovendo(true);
+        try {
+            const response = await axios.delete(`${api.root}/telefones/${telefone}`);
+            if(response.status === 200){
+                setTelefones(telefones.filter((tel)=> tel !==telefone));    
+                alert('Telefone excluido com sucesso!');
+            }else{
+                console.error('Erro ao remover telefone');
+                setErro('Erro ao remover Telefone');
+            }
+        } catch (error) {
+            console.error('Erro ao remover telefone: ', error);
+            setErro('Erro ao remover Telefone');
+        }finally{
+            setRemovendo(false);
+        }
+    };
+    return {removerTelefone, removendo, erro};
+};
+
+export default useRemoverTelefone;
